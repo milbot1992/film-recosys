@@ -17,12 +17,8 @@ def user_based_collaborative_filtering(collab_df):
     users_pivot.fillna(0, inplace=True)
 
     def users_choice(user_id):
-        print('>>>>>collab_df: ', collab_df)
-        print('>>>>>user_id: ', user_id)
         unique_user_ids = collab_df["userId"].unique()
-        print("Unique user IDs:", unique_user_ids)
         user_data = collab_df[collab_df["userId"] == user_id].sort_values(["rating"], ascending=False)[0:5]
-        print('>>>>>user_data: ', user_data)
         user_data = user_data.loc[:, ["title", "release_date", "rating", "new_image_url"]]
         return user_data
 
