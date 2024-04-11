@@ -1,8 +1,8 @@
 from flask import Flask, jsonify
 import pandas as pd
-from top_recommendation import load_data, preprocess_data, top_movies
-from collab_recommendation import user_based_collaborative_filtering
-from collab_preprocess import collab_preprocess_data
+from Models.top_recommendation import preprocess_data, top_movies
+from Models.collab_recommendation import user_based_collaborative_filtering
+from Models.collab_preprocess import collab_preprocess_data
 
 app = Flask(__name__)
 
@@ -34,11 +34,8 @@ def get_user_ids():
 def get_recommendations(user_id):
     try:
         user_favourite_films_df = users_choice(user_id)
-        
         user_favourite_films = user_favourite_films_df.to_dict(orient='records')
-        
         recommended_films = common(user_id)
-
         return jsonify({'user_favourite_films': user_favourite_films, 'recommended_films': recommended_films})
     except Exception as e:
         return jsonify({'error': str(e)}), 500
