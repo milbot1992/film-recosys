@@ -3,9 +3,6 @@ import numpy as np
 from scipy import stats
 from ast import literal_eval
 
-def load_data(file_path):
-    return pd.read_csv(file_path)
-
 def preprocess_data(df):
     df['genres'] = df['genres'].fillna('[]').apply(literal_eval).apply(lambda x: [i['name'] for i in x] if isinstance(x, list) else [])
     df['year'] = pd.to_datetime(df['release_date'], errors='coerce').apply(lambda x: str(x).split('-')[0] if x != np.nan else np.nan)
