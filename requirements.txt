@@ -1,4 +1,5 @@
-aiofiles @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_0ar7qj9rcj/croot/aiofiles_1683773588297/work
+aiobotocore
+aiofiles
 aiohttp @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_44k_ps5jm7/croot/aiohttp_1694181081849/work
 aioitertools @ file:///tmp/build/80754af9/aioitertools_1607109665762/work
 aiosignal @ file:///tmp/build/80754af9/aiosignal_1637843061372/work
