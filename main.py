@@ -1,7 +1,7 @@
 from flask import Flask
-from users import create_user_api
-from recommendations import create_recommendation_api
-from trending_now import trending_now_api
+from api.users import create_user_api
+from api.recommendations import create_recommendation_api
+from api.trending_now import trending_now_api
 from utils.preprocess_utils import load_and_preprocess_data
 
 app = Flask(__name__)
