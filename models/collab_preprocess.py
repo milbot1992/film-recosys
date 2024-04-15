@@ -25,6 +25,6 @@ def collab_preprocess_data(movies_df, ratings_df, links_df):
     df = small_movies_df.merge(ratings_df, left_on='id', right_on='movieId')
 
     # Drop users who vote less than 200 times.
-    new_df = df[df['userId'].map(df['userId'].value_counts()) > 150]
-
-    return new_df
+    collab_df = df[df['userId'].map(df['userId'].value_counts()) > 150]
+    
+    return collab_df

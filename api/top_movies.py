@@ -1,13 +1,14 @@
 from flask import Blueprint, jsonify
-from ..Models.top_recommendation import top_movies
-from ..Utils.preprocess_utils import processed_data
+from models.top_recommendation import top_movies
 
-top_movies_api = Blueprint('top_movies_api', __name__)
+top_movies_blueprint = Blueprint('top_movies_api', __name__)
 
-# Get top movies
-top_movies_data = top_movies(processed_data)
-top_10_movies = top_movies_data.head(10)
+def create_top_movies_api(processed_data):
+    @top_movies_blueprint.route('/top_movies', methods=['GET'])
+    def get_top_movies():
+        # Get top movies
+        top_movies_data = top_movies(processed_data)
+        top_10_movies = top_movies_data.head(10)
+        return top_10_movies.to_json(orient='records')
 
-@top_movies_api.route('/top_movies', methods=['GET'])
-def get_top_movies():
-    return top_10_movies.to_json(orient='records')
+    return top_movies_blueprint

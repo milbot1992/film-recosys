@@ -1,19 +1,15 @@
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
 import pandas as pd
+from utils.image_utils import get_image_url
 
 def user_based_collaborative_filtering(collab_df):
-
-    def get_image_url(new_poster_path, size='w500'):
-            base_url = "https://image.tmdb.org/t/p/"
-            new_image_url = f"{base_url}{size}{new_poster_path}"
-            return new_image_url
-        
+    
     # Generate new_image_url for each movie and add it to the DataFrame
     collab_df['new_image_url'] = collab_df.apply(lambda row: get_image_url(row['new_poster_path']), axis=1)
     
+    # Pivot users table
     users_pivot = collab_df.pivot_table(index=["userId"], columns=["title"], values="rating")
-
     users_pivot.fillna(0, inplace=True)
 
     def users_choice(user_id):
