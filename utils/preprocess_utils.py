@@ -1,6 +1,5 @@
 import pandas as pd
 from models.collab_preprocess import collab_preprocess_data
-from models.top_recommendation import preprocess_data
 
 def load_and_preprocess_data():
     # Load data
@@ -14,7 +13,6 @@ def load_and_preprocess_data():
     links_df = pd.read_csv('./Data/links_small.csv')
 
     # Preprocess data
-    processed_data = preprocess_data(movies_df)
     collab_df = collab_preprocess_data(movies_df, ratings_df, links_df)
 
-    return processed_data, collab_df
+    return collab_df
