@@ -1,1 +1,1 @@
-web: gunicorn film-recosys:app
+web: gunicorn api.main:app
