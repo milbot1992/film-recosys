@@ -1,0 +1,3 @@
+import pytest
+from recommendation_system import RecommendationSystem
+
