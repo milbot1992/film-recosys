@@ -6,3 +6,4 @@ scikit-learn
 watchdog 
 Werkzeug
 requests
+flask_cors
