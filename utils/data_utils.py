@@ -25,8 +25,8 @@ movies_df = movies_df.sort_values(by='id', ascending=True)
 # Iterate through each row in movies_df and fetch poster path using the id
 for index, row in movies_df.iterrows():
     movie_id = row['id']
-    print('movie_id :', movie_id)
     poster_path = get_poster_path(movie_id, api_key)
+    print('film_info :', 'movie_id: ', movie_id, ' poster_path: ', poster_path)
     movies_df.at[index, 'new_poster_path'] = poster_path
 
 print('movies_df_cols: ', movies_df.columns)
