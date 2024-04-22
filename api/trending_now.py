@@ -25,7 +25,7 @@ def get_trending_now():
                 "vote_count": movie["vote_count"],
                 "vote_average": movie["vote_average"],
                 "popularity": movie["popularity"],
-                "poster_path": get_image_url(movie["poster_path"])
+                "poster_url": get_image_url(movie["poster_path"])
             }
             formatted_response.append(formatted_movie)
         
