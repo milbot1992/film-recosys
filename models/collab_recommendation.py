@@ -34,6 +34,8 @@ def user_based_collaborative_filtering(collab_df):
         unique_user_ids = collab_df["userId"].unique()
         user_data = collab_df[collab_df["userId"] == user_id].sort_values(["rating"], ascending=False)[0:5]
         user_data = user_data.loc[:, ["title", "release_date", "rating", "new_full_image_url"]]
+        # Rename the column 'new_full_image_url' to 'poster_url'
+        user_data.rename(columns={"new_full_image_url": "poster_url"}, inplace=True)
         return user_data
 
     def user_based(user_id):
