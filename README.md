@@ -31,7 +31,12 @@ This site has links to the frontend repo
     cd film-recosys
     ```
 
-2. **Install Dependencies**:
+2. **Set up virtual environment**:
+    ```
+    python -m venv .venv
+    ```
+    
+3. **Install Dependencies**:
     - Backend:
         ```
         pip install -r requirements.txt
@@ -42,14 +47,14 @@ This site has links to the frontend repo
         npm install
         ```
 
-3. **Running the Backend**:
+4. **Running the Backend**:
     - Start the Flask server:
         ```
         python main.py
         ```
     - This will host the API on `http://localhost:5000/`.
 
-4. **Running the Frontend**:
+5. **Running the Frontend**:
     - Navigate to the frontend directory and start the React app:
         ```
         npm start
