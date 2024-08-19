@@ -31,9 +31,10 @@ This site has links to the frontend repo
     cd film-recosys
     ```
 
-2. **Set up virtual environment**:
+2. **Set up virtual environment and activate it**:
     ```
     python -m venv .venv
+    source .venv/bin/activate
     ```
     
 3. **Install Dependencies**:
